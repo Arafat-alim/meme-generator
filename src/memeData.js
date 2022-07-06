@@ -1,4 +1,4 @@
-export default memeData = {
+let memeData = {
   success: true,
   data: {
     memes: [
@@ -805,3 +805,5 @@ export default memeData = {
     ],
   },
 };
+
+export default memeData;
