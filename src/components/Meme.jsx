@@ -3,9 +3,19 @@ import React, { useEffect, useState } from "react";
 export default function Meme() {
   //! Fetching api  using useEffect
   useEffect(() => {
-    fetch("https://api.imgflip.com/get_memes")
-      .then((res) => res.json())
-      .then((data) => setAllMemeImage(data));
+    async function getMemes() {
+      const res = await fetch("https://api.imgflip.com/get_memes");
+      const data = await res.json();
+      setAllMemeImage(data);
+    }
+    // fetch("https://api.imgflip.com/get_memes")
+    //   .then((res) => res.json())
+    //   .then((data) => setAllMemeImage(data));
+
+    //calling async function
+    getMemes();
+    // ! Clean up function - but here we dont this
+    return () => {};
   }, []);
 
   // ! Creating a state
